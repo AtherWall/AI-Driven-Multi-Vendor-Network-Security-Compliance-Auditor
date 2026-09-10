@@ -1,0 +1,213 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/network-security-cdm.json",
+  "title": "Vendor-Neutral Network Security Configuration",
+  "type": "object",
+  "additionalProperties": false,
+
+  "required": [
+    "schema_version",
+    "device"
+  ],
+
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+
+    "device": {
+      "$ref": "#/$defs/device"
+    }
+  },
+
+  "$defs": {
+
+    "device": {
+      "type": "object",
+      "additionalProperties": false,
+
+      "required": [
+        "id",
+        "hostname",
+        "interfaces",
+        "security_policies"
+      ],
+
+      "properties": {
+
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+
+        "hostname": {
+          "type": "string",
+          "minLength": 1
+        },
+
+        "metadata": {
+          "$ref": "#/$defs/metadata"
+        },
+
+        "interfaces": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/interface"
+          }
+        },
+
+        "security_policies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/security_rule"
+          }
+        },
+
+        "routing": {
+          "type": "object",
+          "additionalProperties": false
+        }
+      }
+    },
+
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+
+      "properties": {
+        "vendor": {
+          "type": "string",
+          "minLength": 1
+        },
+
+        "platform": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+
+    "interface": {
+      "type": "object",
+      "additionalProperties": false,
+
+      "required": [
+        "id",
+        "name",
+        "enabled"
+      ],
+
+      "properties": {
+
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+
+        "enabled": {
+          "type": "boolean"
+        },
+
+        "description": {
+          "type": "string"
+        },
+
+        "ip_addresses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ip_address"
+          }
+        }
+      }
+    },
+
+    "ip_address": {
+      "type": "object",
+      "additionalProperties": false,
+
+      "required": [
+        "address",
+        "prefix_length"
+      ],
+
+      "properties": {
+
+        "address": {
+          "type": "string",
+          "minLength": 1
+        },
+
+        "prefix_length": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 128
+        }
+      }
+    },
+
+    "security_rule": {
+      "type": "object",
+      "additionalProperties": false,
+
+      "required": [
+        "id",
+        "action",
+        "protocol",
+        "source",
+        "destination",
+        "enabled"
+      ],
+
+      "properties": {
+
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+
+        "action": {
+          "type": "string",
+          "enum": [
+            "allow",
+            "deny"
+          ]
+        },
+
+        "protocol": {
+          "type": "string",
+          "enum": [
+            "tcp",
+            "udp",
+            "icmp"
+          ]
+        },
+
+        "source": {
+          "type": "string",
+          "minLength": 1
+        },
+
+        "destination": {
+          "type": "string",
+          "minLength": 1
+        },
+
+        "destination_port": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        },
+
+        "enabled": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}
