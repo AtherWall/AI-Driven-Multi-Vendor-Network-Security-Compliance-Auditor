@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from routes.audit import router as audit_router
+from routes.auth import router as auth_router
 from routes.graph import router as graph_router
 from routes.remediate import router as remediate_router
 from routes.upload import router as upload_router
@@ -29,7 +30,7 @@ app.include_router(upload_router)
 app.include_router(audit_router)
 app.include_router(graph_router)
 app.include_router(remediate_router)
-
+app.include_router(auth_router)
 
 @app.get("/api/health")
 def health_check():
