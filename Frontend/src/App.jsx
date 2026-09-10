@@ -4,6 +4,12 @@ import "./App.css";
 import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
 import api from "./utils/axios";
+import Topology from "./pages/Topology";
+import Configurations from "./pages/Configurations";
+import AITraining from "./pages/AITraining";
+import Compliance from "./pages/Compliance";
+import Reports from "./pages/Reports";
+import Settings from "./pages/Settings";
 
 function App() {
   const [user, setUser] = useState("Arijit");
@@ -54,6 +60,72 @@ function App() {
         element={
           user ? (
             <Dashboard user={user} setuser={setUser} />
+          ) : (
+            <Navigate to="/" replace />
+          )
+        }
+      />
+
+      <Route
+        path="/topology"
+        element={
+          user ? (
+            <Topology user={user} setuser={setUser} />
+          ) : (
+            <Navigate to="/" replace />
+          )
+        }
+      />
+
+      <Route
+        path="/configurations"
+        element={
+          user ? (
+            <Configurations user={user} setuser={setUser} />
+          ) : (
+            <Navigate to="/" replace />
+          )
+        }
+      />
+
+      <Route
+        path="/ai-training"
+        element={
+          user ? (
+            <AITraining user={user} setuser={setUser} />
+          ) : (
+            <Navigate to="/" replace />
+          )
+        }
+      />
+
+      <Route
+        path="/compliance"
+        element={
+          user ? (
+            <Compliance user={user} setuser={setUser} />
+          ) : (
+            <Navigate to="/" replace />
+          )
+        }
+      />
+
+      <Route
+        path="/reports"
+        element={
+          user ? (
+            <Reports user={user} setuser={setUser} />
+          ) : (
+            <Navigate to="/" replace />
+          )
+        }
+      />
+
+      <Route
+        path="/settings"
+        element={
+          user ? (
+            <Settings user={user} setuser={setUser} />
           ) : (
             <Navigate to="/" replace />
           )
