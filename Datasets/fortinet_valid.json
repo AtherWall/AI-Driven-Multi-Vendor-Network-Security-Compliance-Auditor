@@ -1,0 +1,57 @@
+{
+    "schema_version": "1.0.0",
+    "device": {
+        "id": "fortigate-fw-01",
+        "hostname": "FGT-BRANCH-01",
+        "metadata": {
+            "vendor": "Fortinet",
+            "platform": "FortiGate"
+        },
+        "interfaces": [
+            {
+                "id": "if-01",
+                "name": "wan1",
+                "enabled": true,
+                "description": "Internet WAN",
+                "ip_addresses": [
+                    {
+                        "address": "198.51.100.10",
+                        "prefix_length": 30
+                    }
+                ]
+            },
+            {
+                "id": "if-02",
+                "name": "lan",
+                "enabled": true,
+                "description": "Internal LAN",
+                "ip_addresses": [
+                    {
+                        "address": "192.168.10.1",
+                        "prefix_length": 24
+                    }
+                ]
+            }
+        ],
+        "security_policies": [
+            {
+                "id": "policy-001",
+                "action": "allow",
+                "protocol": "tcp",
+                "source": "192.168.10.0/24",
+                "destination": "203.0.113.50",
+                "destination_port": 443,
+                "enabled": true
+            },
+            {
+                "id": "policy-002",
+                "action": "allow",
+                "protocol": "udp",
+                "source": "192.168.10.0/24",
+                "destination": "8.8.8.8",
+                "destination_port": 53,
+                "enabled": true
+            }
+        ]
+    }
+}
