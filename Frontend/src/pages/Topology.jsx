@@ -357,7 +357,7 @@ function NetworkTopology() {
 
             <SidebarLink
               to="/topology"
-              icon={<FaNetworkWired />}
+              icon={<FaRoute />}
               label="Network Topology"
             />
 
@@ -379,24 +379,13 @@ function NetworkTopology() {
               label="Reports"
             />
 
-            <SidebarLink
-              to="/settings"
-              icon={<FaCog />}
-              label="Settings"
-            />
-
           </nav>
 
           <div className="border-t border-white/10 px-4 py-5">
-
-            <NavLink
-              to="/"
-              className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-sm text-slate-400 transition hover:bg-white/5 hover:text-white"
-            >
+            <button className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-sm text-slate-400 transition hover:bg-white/5 hover:text-white">
               <FaSignOutAlt />
-              Exit Dashboard
-            </NavLink>
-
+              Logout
+            </button>
           </div>
 
         </aside>
@@ -422,10 +411,6 @@ function NetworkTopology() {
               <div className="hidden text-right sm:block">
                 <p className="text-sm font-semibold text-slate-800">
                   Network Administrator
-                </p>
-
-                <p className="text-xs text-slate-500">
-                  Security Operations
                 </p>
               </div>
 

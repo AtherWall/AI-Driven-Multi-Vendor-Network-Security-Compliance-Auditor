@@ -9,7 +9,6 @@ import Configurations from "./pages/Configurations";
 import AITraining from "./pages/AITraining";
 import Compliance from "./pages/Compliance";
 import Reports from "./pages/Reports";
-import Settings from "./pages/Settings";
 
 function App() {
   const [user, setUser] = useState("Arijit");
@@ -115,17 +114,6 @@ function App() {
         element={
           user ? (
             <Reports user={user} setuser={setUser} />
-          ) : (
-            <Navigate to="/" replace />
-          )
-        }
-      />
-
-      <Route
-        path="/settings"
-        element={
-          user ? (
-            <Settings user={user} setuser={setUser} />
           ) : (
             <Navigate to="/" replace />
           )

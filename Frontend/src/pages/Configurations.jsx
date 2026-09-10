@@ -17,6 +17,7 @@ import {
   FaExclamationTriangle,
   FaTimes,
   FaFilter,
+  FaRoute,
 } from "react-icons/fa";
 import api from "../utils/axios";
 
@@ -113,9 +114,9 @@ function Configurations() {
         prev.map((item) =>
           item.file_id === uploadedFileId
             ? {
-                ...item,
-                status: "Auditing",
-              }
+              ...item,
+              status: "Auditing",
+            }
             : item
         )
       );
@@ -130,14 +131,14 @@ function Configurations() {
         prev.map((item) =>
           item.file_id === uploadedFileId
             ? {
-                ...item,
-                filename,
-                vendor: audit.vendor || "Unknown",
-                status: audit.status || "Completed",
-                auditId: audit.audit_id,
-                cdmValid: audit.cdm_valid,
-                message: audit.message,
-              }
+              ...item,
+              filename,
+              vendor: audit.vendor || "Unknown",
+              status: audit.status || "Completed",
+              auditId: audit.audit_id,
+              cdmValid: audit.cdm_valid,
+              message: audit.message,
+            }
             : item
         )
       );
@@ -148,12 +149,12 @@ function Configurations() {
         prev.map((item) =>
           item.file_id === uploadedFileId
             ? {
-                ...item,
-                status: "Failed",
-                message:
-                  err.response?.data?.detail ||
-                  "Audit failed.",
-              }
+              ...item,
+              status: "Failed",
+              message:
+                err.response?.data?.detail ||
+                "Audit failed.",
+            }
             : item
         )
       );
@@ -254,7 +255,7 @@ function Configurations() {
 
             <SidebarLink
               to="/topology"
-              icon={<FaNetworkWired />}
+              icon={<FaRoute />}
               label="Network Topology"
             />
 
@@ -276,22 +277,13 @@ function Configurations() {
               label="Reports"
             />
 
-            <SidebarLink
-              to="/settings"
-              icon={<FaCog />}
-              label="Settings"
-            />
-
           </nav>
 
           <div className="border-t border-white/10 px-4 py-5">
-            <NavLink
-              to="/"
-              className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-sm text-slate-400 transition hover:bg-white/5 hover:text-white"
-            >
+            <button className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-sm text-slate-400 transition hover:bg-white/5 hover:text-white">
               <FaSignOutAlt />
-              Exit Dashboard
-            </NavLink>
+              Logout
+            </button>
           </div>
 
         </aside>
@@ -312,13 +304,19 @@ function Configurations() {
               </p>
             </div>
 
-            <button
-              onClick={() => setUploadOpen(true)}
-              className="flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700"
-            >
-              <FaUpload />
-              Upload Configuration
-            </button>
+            <div className="flex items-center gap-3">
+
+              <div className="hidden text-right sm:block">
+                <p className="text-sm font-semibold text-slate-800">
+                  Network Administrator
+                </p>
+              </div>
+
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">
+                A
+              </div>
+
+            </div>
 
           </header>
 
