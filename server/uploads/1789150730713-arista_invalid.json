@@ -1,0 +1,35 @@
+{
+    "schema_version": "2.0",
+    "device": {
+        "id": "arista-leaf-01",
+        "hostname": "",
+        "metadata": {
+            "vendor": "Arista",
+            "platform": "EOS"
+        },
+        "interfaces": [
+            {
+                "id": "eth-01",
+                "name": "Ethernet1",
+                "enabled": "yes",
+                "description": "Server Network",
+                "ip_addresses": [
+                    {
+                        "address": "10.10.50.1",
+                        "prefix_length": 150
+                    }
+                ]
+            }
+        ],
+        "security_policies": [
+            {
+                "id": "arista-rule-01",
+                "action": "allow",
+                "protocol": "icmp",
+                "source": "10.10.50.0/24",
+                "destination": "10.10.60.0/24",
+                "enabled": true
+            }
+        ]
+    }
+}

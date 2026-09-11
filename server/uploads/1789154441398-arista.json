@@ -1,0 +1,36 @@
+{
+  "schema_version": "2.0",
+  "device": {
+    "id": "",
+    "hostname": "",
+    "metadata": {
+      "vendor": "Arista",
+      "platform": "EOS"
+    },
+    "interfaces": [
+      {
+        "id": "eth-01",
+        "name": "Ethernet1",
+        "enabled": "yes",
+        "description": "Server Network",
+        "ip_addresses": [
+          {
+            "address": "999.999.999.999",
+            "prefix_length": 150
+          }
+        ]
+      }
+    ],
+    "security_policies": [
+      {
+        "id": "rule-01",
+        "action": "permit",
+        "protocol": "http",
+        "source": "",
+        "destination": "10.10.60.0/24",
+        "destination_port": 70000,
+        "enabled": "true"
+      }
+    ]
+  }
+}

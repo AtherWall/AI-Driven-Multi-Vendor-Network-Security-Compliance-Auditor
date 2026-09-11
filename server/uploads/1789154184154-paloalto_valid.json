@@ -1,0 +1,57 @@
+{
+    "schema_version": "1.0.0",
+    "device": {
+        "id": "pa-firewall-01",
+        "hostname": "PA-FW-01",
+        "metadata": {
+            "vendor": "Palo Alto Networks",
+            "platform": "PAN-OS"
+        },
+        "interfaces": [
+            {
+                "id": "if-01",
+                "name": "ethernet1/1",
+                "enabled": true,
+                "description": "Untrust Interface",
+                "ip_addresses": [
+                    {
+                        "address": "203.0.113.20",
+                        "prefix_length": 30
+                    }
+                ]
+            },
+            {
+                "id": "if-02",
+                "name": "ethernet1/2",
+                "enabled": true,
+                "description": "Trust Interface",
+                "ip_addresses": [
+                    {
+                        "address": "172.16.10.1",
+                        "prefix_length": 24
+                    }
+                ]
+            }
+        ],
+        "security_policies": [
+            {
+                "id": "allow-web",
+                "action": "allow",
+                "protocol": "tcp",
+                "source": "172.16.10.0/24",
+                "destination": "198.51.100.50",
+                "destination_port": 443,
+                "enabled": true
+            },
+            {
+                "id": "deny-telnet",
+                "action": "deny",
+                "protocol": "tcp",
+                "source": "any",
+                "destination": "172.16.10.0/24",
+                "destination_port": 23,
+                "enabled": true
+            }
+        ]
+    }
+}

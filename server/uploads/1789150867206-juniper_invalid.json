@@ -1,0 +1,36 @@
+{
+    "schema_version": "1.0",
+    "device": {
+        "id": "",
+        "hostname": "SRX-BRANCH-01",
+        "metadata": {
+            "vendor": "Juniper",
+            "platform": ""
+        },
+        "interfaces": [
+            {
+                "id": "ge-0/0/0",
+                "name": "ge-0/0/0",
+                "enabled": true,
+                "description": "WAN",
+                "ip_addresses": [
+                    {
+                        "address": "999.999.999.999",
+                        "prefix_length": 24
+                    }
+                ]
+            }
+        ],
+        "security_policies": [
+            {
+                "id": "junos-rule-01",
+                "action": "permit",
+                "protocol": "http",
+                "source": "",
+                "destination": "10.10.20.0/24",
+                "destination_port": 70000,
+                "enabled": true
+            }
+        ]
+    }
+}

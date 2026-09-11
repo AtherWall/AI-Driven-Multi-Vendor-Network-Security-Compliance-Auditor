@@ -1,0 +1,42 @@
+{
+    "schema_version": "1.0",
+
+    "device": {
+        "id": "",
+        "hostname": "",
+
+        "metadata": {
+            "vendor": "",
+            "platform": "IOS-XE"
+        },
+
+        "interfaces": [
+            {
+                "id": "if-01",
+                "name": "GigabitEthernet0/0",
+                "enabled": "yes",
+
+                "description": "WAN",
+
+                "ip_addresses": [
+                    {
+                        "address": "999.999.999.999",
+                        "prefix_length": 150
+                    }
+                ]
+            }
+        ],
+
+        "security_policies": [
+            {
+                "id": "rule-001",
+                "action": "permit",
+                "protocol": "http",
+                "source": "",
+                "destination": "10.20.20.53",
+                "destination_port": 70000,
+                "enabled": true
+            }
+        ]
+    }
+}
